@@ -1,65 +1,68 @@
 
-import java.util.Scanner;
 public class Calculadora {
-	
-	
-	 public static void main(String[] args) {
-		 Integer a;
-		 Integer b;
-		 Integer opcion;
-		 Integer resultado = 0;
-		 
-		 Scanner teclado = new Scanner(System.in);
-		 
-	 System.out.println("Ingrese su operación /n 1 para sumar /n 2 para restar /n 3 para multiplicar /n 4 para dividir");
-	 
-	 opcion = teclado.nextInt();
-	
-		 switch (opcion) {
-		 case 1:
-			 System.out.println(" ingrese el primer numero");
-			 a=teclado.nextInt();
-			 System.out.println(" ingrese el segundo numero");
-			 b=teclado.nextInt();
-			 
-			 resultado= a+b;
-			 break;
-			 
-		 case 2:
-			 System.out.println(" ingrese el primer numero");
-			 
-			 a=teclado.nextInt();
-			 System.out.println(" ingrese el segundo numero");
-			 b=teclado.nextInt();
-			 
-			 resultado= a-b;
-			 break;
-		 case 3:
-			 System.out.println(" ingrese el primer numero");
-			 a=teclado.nextInt();
-			 System.out.println(" ingrese el segundo numero");
-			 b=teclado.nextInt();
-			 
-			 resultado= a*b;
-			 break;
-			 
-		 case 4:
-			 System.out.println(" ingrese el primer numero");
-			 a=teclado.nextInt();
-			 System.out.println(" ingrese el segundo numero");
-			 b=teclado.nextInt();
-			 
-			 if(b < 0 || b>0) {
-					resultado= a/b;
-					}
-			 break;
-			 default:
-				 System.out.println("ERROR");
-		 }
-		 
-		 System.out.println("El resultado es " + resultado.toString());
+	private double operador1;
+	private double operador2;
+
+	public Calculadora() {
+		this.operador1 = 2;
+		this.operador2 = 1;
 	}
-	 
 
+	public Calculadora(double operador1, double operador2) {
+		this.operador1 = operador1;
+		this.operador2 = operador2;
+	}
+
+	public double sumar() {
+		return operador1 + operador2;
+
+	}
+
+	public double sumar(double operador1, double operador2) {
+		this.operador1 = operador1;
+		this.operador2 = operador2;
+		return operador1 + operador2;
+	}
+
+	
+
+	public double restar(double operador1, double operador2) {
+		this.operador1 = operador1;
+		this.operador2 = operador2;
+		return operador1 - operador2;
+	}
+	public double restar() {
+		return operador1 - operador2;
+	}
+	public double multiplicar() {
+		return operador1 * operador2;
+	}
+	public double multiplicar(double operador1, double operador2) {
+		this.operador1 = operador1;
+		this.operador2 = operador2;
+		return operador1 * operador2;
+	}
+	public double dividir() {
+		double division=0;
+		if(operador2 < 0 || operador2>0) {
+		
+		division= operador1/operador2;
+		}
+		return division;
+	}
+	public double dividir(double operador1, double operador2) {
+		this.operador1 = operador1;
+		this.operador2 = operador2;
+		double division = 0;
+		if(operador2 < 0 || operador2>0) {
+			division= operador1/operador2;
+		}
+		return division;
+	}
+
+	@Override
+	public String toString() {
+		return "Calculadora [operador1=" + operador1 + ", operador2=" + operador2 + "]";
+	}
+	
 }
-
